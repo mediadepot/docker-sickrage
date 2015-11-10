@@ -6,10 +6,6 @@ if [ ! -f /srv/sickrage/config/config.ini ]; then
 	cheetah fill --oext ini --env /src/sickrage/config/sickbeard
 fi
 
-echo "THIS IS A TEST"
-ls -alt /srv/sickrage
-ls -alt /srv/sickrage/app
-
 /usr/bin/python /srv/sickrage/app/SickBeard.py \
 	--nolaunch \
 	--datadir /srv/sickrage/data \
