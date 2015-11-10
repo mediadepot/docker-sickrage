@@ -1,13 +1,16 @@
-if [ -f /srv/sickbeard/config/config.ini ]
-then
-	#config file already exists, do nothing
-else
+#!/usr/bin/env bash
+if [ ! -f /srv/sickrage/config/config.ini ]; then
 	#generate the config file for the first time using docker-gen
-	/srv/docker-gen/docker-gen /srv/docker-gen/sickbeard.ini.tmpl /srv/sickbeard/config/sickbeard.ini
+	#/srv/docker-gen/docker-gen /srv/docker-gen/sickbeard.ini.tmpl /srv/sickrage/config/sickbeard.ini
+
+	cheetah fill --oext ini --env /src/sickrage/config/sickbeard
 fi
 
-/usr/bin/python /srv/sickbeard/app/SickBeard.py \
+echo "THIS IS A TEST"
+ls -alt /srv/sickrage
+ls -alt /srv/sickrage/app
+
+/usr/bin/python /srv/sickrage/app/SickBeard.py \
 	--nolaunch \
-	--datadir /srv/sickbeard/data \
-	-p 8081 \
-	--config /srv/sickbeard/config/sickbeard.ini
+	--datadir /srv/sickrage/data \
+	--config /srv/sickrage/config/sickbeard.ini
