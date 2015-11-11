@@ -1,6 +1,9 @@
 FROM debian:jessie
 MAINTAINER jason@thesparktree.com
 
+#Create internal depot user (which will be mapped to external DEPOT_USER, with the uid and gid values)
+RUN groupadd -g 15000 -r depot && useradd --uid 15000 -r -g depot depot
+
 #Install base applications + deps
 RUN echo "deb http://http.us.debian.org/debian stable main contrib non-free" | tee -a /etc/apt/sources.list
 RUN apt-get -q update && \
