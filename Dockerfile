@@ -16,7 +16,8 @@ RUN apt-get -q update && \
 #Create sickrage folder structure & set as volumes
 RUN mkdir -p /srv/sickrage/app && \
 	mkdir -p /srv/sickrage/config && \
-	mkdir -p /srv/sickrage/data
+	mkdir -p /srv/sickrage/data && \
+	mkdir -p /srv/sickrage/tmpl
 
 
 #Install Sickrage
@@ -29,7 +30,7 @@ RUN curl -L https://github.com/SiCKRAGETV/SickRage/tarball/${SICKRAGE_VERSION} -
 #Copy over start script and docker-gen files
 ADD ./start.sh /srv/start.sh
 RUN chmod u+x  /srv/start.sh
-ADD ./template/sickbeard.tmpl /src/sickrage/config/sickbeard.tmpl
+ADD ./template/sickbeard.tmpl /src/sickrage/tmpl/sickbeard.tmpl
 
 VOLUME ["/srv/sickrage/app", "/srv/sickrage/config", "/srv/sickrage/data"]
 
