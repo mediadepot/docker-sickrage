@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 if [ ! -f /srv/sickrage/config/sickbeard.ini ]; then
 
-	cheetah fill --oext ini --env /src/sickrage/tmpl/sickbeard
+	cheetah fill --oext ini --env /srv/sickrage/tmpl/sickbeard
 	mv /srv/sickrage/tmpl/sickbeard.ini /srv/sickrage/config/sickbeard.ini
 	chown -R depot:depot /srv/sickrage
 fi

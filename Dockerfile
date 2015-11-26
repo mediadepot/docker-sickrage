@@ -30,7 +30,7 @@ RUN curl -L https://github.com/SiCKRAGETV/SickRage/tarball/${SICKRAGE_VERSION} -
 #Copy over start script and docker-gen files
 ADD ./start.sh /srv/start.sh
 RUN chmod u+x  /srv/start.sh
-ADD ./template/sickbeard.tmpl /src/sickrage/tmpl/sickbeard.tmpl
+ADD ./template/sickbeard.tmpl /srv/sickrage/tmpl/sickbeard.tmpl
 
 VOLUME ["/srv/sickrage/app", "/srv/sickrage/config", "/srv/sickrage/data"]
 
