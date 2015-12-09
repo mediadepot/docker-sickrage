@@ -13,11 +13,16 @@ RUN apt-get -q update && \
     rm -rf /var/lib/apt/lists/* && \
     rm -rf /tmp/*
 
+#Create confd folder structure
+RUN curl -L -o /usr/local/bin/confd https://github.com/kelseyhightower/confd/releases/download/v0.11.0/confd-linux-amd64
+RUN chmod u+x  /usr/local/bin/confd
+ADD ./conf.d /etc/confd/conf.d
+ADD ./templates /etc/confd/templates
+
 #Create sickrage folder structure & set as volumes
 RUN mkdir -p /srv/sickrage/app && \
 	mkdir -p /srv/sickrage/config && \
-	mkdir -p /srv/sickrage/data && \
-	mkdir -p /srv/sickrage/tmpl
+	mkdir -p /srv/sickrage/data
 
 
 #Install Sickrage
@@ -30,10 +35,9 @@ RUN curl -L https://github.com/SiCKRAGETV/SickRage/tarball/${SICKRAGE_VERSION} -
 #Copy over start script and docker-gen files
 ADD ./start.sh /srv/start.sh
 RUN chmod u+x  /srv/start.sh
-ADD ./template/sickbeard.tmpl /srv/sickrage/tmpl/sickbeard.tmpl
 
 VOLUME ["/srv/sickrage/app", "/srv/sickrage/config", "/srv/sickrage/data"]
 
-EXPOSE 8081
+EXPOSE 8080
 
 CMD ["/srv/start.sh"]

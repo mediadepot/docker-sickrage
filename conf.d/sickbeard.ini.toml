@@ -1,0 +1,4 @@
+[template]
+src = "sickbeard.ini.tmpl"
+dest = "/srv/sickrage/config/sickbeard.ini"
+keys = []
