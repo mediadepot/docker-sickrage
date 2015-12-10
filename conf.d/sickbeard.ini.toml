@@ -1,4 +1,9 @@
 [template]
 src = "sickbeard.ini.tmpl"
 dest = "/srv/sickrage/config/sickbeard.ini"
-keys = []
+keys = [
+	"/self/host/labels/depot.user",
+	"/self/host/labels/depot.password",
+	"/self/host/labels/depot.sickrage.api_key",
+	"/self/host/labels/depot.pushover.api_key"
+]
