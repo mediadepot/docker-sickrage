@@ -25,6 +25,6 @@ ADD ./start.sh /srv/start.sh
 RUN chmod u+x  /srv/start.sh
 
 VOLUME ["/srv/sickrage/app", "/srv/sickrage/config", "/srv/sickrage/data"]
-EXPOSE 8081
+EXPOSE 808
 
 CMD ["/srv/start.sh"]
