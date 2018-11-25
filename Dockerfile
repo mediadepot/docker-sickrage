@@ -8,8 +8,7 @@ RUN mkdir -p /srv/sickrage/app && \
 WORKDIR /srv/sickrage/app
 
 # Install permanent apk packages
-RUN apk --no-cache --update add py-cheetah openssl-dev bash unrar wget curl \
-	--update-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ --allow-untrusted
+RUN apk --no-cache --update add py-cheetah openssl-dev bash unrar wget curl nodejs
 
 #start.sh will download the latest version of sickrage and run it.
 ADD ./start.sh /srv/start.sh

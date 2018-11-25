@@ -16,4 +16,4 @@ if [ -z "$ADVANCED_DISABLEUPDATES" ]; then
 fi
 
 # run SickRage
-su -c "/usr/bin/python /srv/sickrage/app/SickBeard.py --nolaunch --datadir /srv/sickrage/data --config /srv/sickrage/config/sickbeard.ini" mediadepot
+su -c "python /srv/sickrage/app/SickBeard.py --nolaunch --datadir /srv/sickrage/data --config /srv/sickrage/config/sickbeard.ini" mediadepot
